@@ -37,7 +37,7 @@ SBX (SB3 + Jax): https://github.com/araffin/sbx
 
 .. toctree::
    :maxdepth: 2
-   :caption: User Guide
+   :caption: 用户指南
 
    guide/install
    guide/quickstart
