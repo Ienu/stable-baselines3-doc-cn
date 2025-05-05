@@ -147,7 +147,7 @@ Docker 命令解析：
 -  ``--rm`` 表示退出/停止后自动删除容器（否则需手动执行 ``docker rm``）
 -  ``--network host`` 不使用网络隔离，允许在宿主机使用 tensorboard/visdom
 -  ``--ipc=host`` 使用宿主机的 IPC (POSIX/SysV IPC) 命名空间，实现共享内存段、信号量和消息队列的隔离
--  ``--name test`` 显式命名容器为 ``test``（否则将随机分配名称） 
+-  ``--name test`` 显式命名容器为 ``test`` （否则将随机分配名称） 
 -  ``--mount src=...`` 将本地目录（ ``pwd`` 命令结果）映射到容器内（路径为 ``/home/mamba/stable-baselines3``），容器内该路径下生成的日志文件将被保留  
 -  ``bash -c '...'`` 在容器内执行命令，此处为运行测试（ ``pytest tests/`` ）
 
