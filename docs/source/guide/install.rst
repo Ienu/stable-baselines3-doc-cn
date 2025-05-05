@@ -4,37 +4,36 @@
 ============
 
 
-Prerequisites
+前置条件
 -------------
 
-Stable-Baselines3 requires python 3.9+ and PyTorch >= 2.3
+Stable-Baselines3 需要 python 3.9+ 和 PyTorch >= 2.3
 
 Windows
 ~~~~~~~
 
-We recommend using `Anaconda <https://conda.io/docs/user-guide/install/windows.html>`_ for Windows users for easier installation of Python packages and required libraries. You need an environment with Python version 3.8 or above.
+建议 Windows 用户使用 `Anaconda <https://conda.io/docs/user-guide/install/windows.html>`_  以便更轻松地安装 Python 包和所需库。您需要准备 Python 3.8 或更高版本的环境。  
 
-For a quick start you can move straight to installing Stable-Baselines3 in the next step.
+快速开始可直接跳转至下一步安装 Stable-Baselines3。
 
 .. note::
 
-	Trying to create Atari environments may result to vague errors related to missing DLL files and modules. This is an
-	issue with atari-py package. `See this discussion for more information <https://github.com/openai/atari-py/issues/65>`_.
+	尝试创建 Atari 环境时可能会出现与缺失 DLL 文件和模块相关的模糊错误。这是 atari-py 包的问题。 `更多信息请参考 <https://github.com/openai/atari-py/issues/65>`_.
 
 
-Stable Release
+稳定版安装
 ~~~~~~~~~~~~~~
-To install Stable Baselines3 with pip, execute:
+使用 pip 安装 Stable Baselines3：
 
 .. code-block:: bash
 
     pip install stable-baselines3[extra]
 
 .. note::
-        Some shells such as Zsh require quotation marks around brackets, i.e. ``pip install 'stable-baselines3[extra]'`` `More information <https://stackoverflow.com/a/30539963>`_.
+        某些 shell（如 Zsh）需要在方括号外加引号： ``pip install 'stable-baselines3[extra]'`` `详情参见 <https://stackoverflow.com/a/30539963>`_.
 
 
-This includes an optional dependencies like Tensorboard, OpenCV or ``ale-py`` to train on Atari games. If you do not need those, you can use:
+此命令会安装可选依赖项（如 Tensorboard、OpenCV 或用于 Atari 游戏的 ``ale-py``）。若不需要这些功能，可使用：
 
 .. code-block:: bash
 
@@ -43,28 +42,27 @@ This includes an optional dependencies like Tensorboard, OpenCV or ``ale-py`` to
 
 .. note::
 
-  If you need to work with OpenCV on a machine without a X-server (for instance inside a docker image),
-  you will need to install ``opencv-python-headless``, see `issue #298 <https://github.com/DLR-RM/stable-baselines3/issues/298>`_.
+  如果需要在无 X-server 的环境中使用 OpenCV（例如在 Docker 镜像内），需安装 ``opencv-python-headless``, 详见 `issue #298 <https://github.com/DLR-RM/stable-baselines3/issues/298>`_.
 
 
-Bleeding-edge version
+最新版本安装
 ---------------------
 
 .. code-block:: bash
 
 	pip install git+https://github.com/DLR-RM/stable-baselines3
 
-with extras:
+安装含额外功能的版本：
 
 .. code-block:: bash
 
   pip install "stable_baselines3[extra,tests,docs] @ git+https://github.com/DLR-RM/stable-baselines3"
 
 
-Development version
+开发版安装
 -------------------
 
-To contribute to Stable-Baselines3, with support for running tests and building the documentation.
+如需参与 Stable-Baselines3 开发（支持运行测试和构建文档）：
 
 .. code-block:: bash
 
@@ -72,97 +70,86 @@ To contribute to Stable-Baselines3, with support for running tests and building 
     pip install -e .[docs,tests,extra]
 
 
-Using Docker Images
+使用 Docker 镜像
 -------------------
 
-If you are looking for docker images with stable-baselines already installed in it,
-we recommend using images from `RL Baselines3 Zoo <https://github.com/DLR-RM/rl-baselines3-zoo>`_.
+如需已预装 stable-baselines 的 Docker 镜像，
+推荐使用 `RL Baselines3 Zoo <https://github.com/DLR-RM/rl-baselines3-zoo>`_ 提供的镜像。
 
-Otherwise, the following images contained all the dependencies for stable-baselines3 but not the stable-baselines3 package itself.
-They are made for development.
+以下镜像仅包含 stable-baselines3 的依赖项（不含本体），专为开发设计。
 
-Use Built Images
+使用预构建镜像
 ~~~~~~~~~~~~~~~~
 
-GPU image (requires `nvidia-docker`_):
+GPU 镜像 (需要 `nvidia-docker`_):
 
 .. code-block:: bash
 
    docker pull stablebaselines/stable-baselines3
 
-CPU only:
+仅 CPU 版本：
 
 .. code-block:: bash
 
    docker pull stablebaselines/stable-baselines3-cpu
 
-Build the Docker Images
+构建 Docker 镜像
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Build GPU image (with nvidia-docker):
+构建 GPU 镜像 (使用 nvidia-docker):
 
 .. code-block:: bash
 
    make docker-gpu
 
-Build CPU image:
+构建 CPU 镜像：
 
 .. code-block:: bash
 
    make docker-cpu
 
-Note: if you are using a proxy, you need to pass extra params during
-build and do some `tweaks`_:
+注意：使用代理时需要传递额外参数并进行 `tweaks`_:
 
 .. code-block:: bash
 
    --network=host --build-arg HTTP_PROXY=http://your.proxy.fr:8080/ --build-arg http_proxy=http://your.proxy.fr:8080/ --build-arg HTTPS_PROXY=https://your.proxy.fr:8080/ --build-arg https_proxy=https://your.proxy.fr:8080/
 
-Run the images (CPU/GPU)
+运行镜像 (CPU/GPU)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Run the nvidia-docker GPU image
+运行 nvidia-docker GPU 镜像
 
 .. code-block:: bash
 
    docker run -it --runtime=nvidia --rm --network host --ipc=host --name test --mount src="$(pwd)",target=/home/mamba/stable-baselines3,type=bind stablebaselines/stable-baselines3 bash -c 'cd /home/mamba/stable-baselines3/ && pytest tests/'
 
-Or, with the shell file:
+或使用 shell 脚本：
 
 .. code-block:: bash
 
    ./scripts/run_docker_gpu.sh pytest tests/
 
-Run the docker CPU image
+运行 docker CPU 镜像：
 
 .. code-block:: bash
 
    docker run -it --rm --network host --ipc=host --name test --mount src="$(pwd)",target=/home/mamba/stable-baselines3,type=bind stablebaselines/stable-baselines3-cpu bash -c 'cd /home/mamba/stable-baselines3/ && pytest tests/'
 
-Or, with the shell file:
+或使用 shell 脚本：
 
 .. code-block:: bash
 
    ./scripts/run_docker_cpu.sh pytest tests/
 
-Explanation of the docker command:
+Docker 命令解析：
 
--  ``docker run -it`` create an instance of an image (=container), and
-   run it interactively (so ctrl+c will work)
--  ``--rm`` option means to remove the container once it exits/stops
-   (otherwise, you will have to use ``docker rm``)
--  ``--network host`` don't use network isolation, this allow to use
-   tensorboard/visdom on host machine
--  ``--ipc=host`` Use the host system’s IPC namespace. IPC (POSIX/SysV IPC) namespace provides
-   separation of named shared memory segments, semaphores and message
-   queues.
--  ``--name test`` give explicitly the name ``test`` to the container,
-   otherwise it will be assigned a random name
--  ``--mount src=...`` give access of the local directory (``pwd``
-   command) to the container (it will be map to ``/home/mamba/stable-baselines``), so
-   all the logs created in the container in this folder will be kept
--  ``bash -c '...'`` Run command inside the docker image, here run the tests
-   (``pytest tests/``)
+-  ``docker run -it`` 创建镜像实例（容器）并以交互模式运行（支持 ctrl+c 中断） 
+-  ``--rm`` 表示退出/停止后自动删除容器（否则需手动执行 ``docker rm``）
+-  ``--network host`` 不使用网络隔离，允许在宿主机使用 tensorboard/visdom
+-  ``--ipc=host`` 使用宿主机的 IPC (POSIX/SysV IPC) 命名空间，实现共享内存段、信号量和消息队列的隔离
+-  ``--name test`` 显式命名容器为 ``test``（否则将随机分配名称） 
+-  ``--mount src=...`` 将本地目录（ ``pwd`` 命令结果）映射到容器内（路径为 ``/home/mamba/stable-baselines3``），容器内该路径下生成的日志文件将被保留  
+-  ``bash -c '...'`` 在容器内执行命令，此处为运行测试（ ``pytest tests/`` ）
 
 .. _nvidia-docker: https://github.com/NVIDIA/nvidia-docker
 .. _tweaks: https://stackoverflow.com/questions/23111631/cannot-download-docker-images-behind-a-proxy
