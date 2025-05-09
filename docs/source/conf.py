@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Stable-Baselines3 中文文档（非官方）'
+copyright = '2025, Ienu'
+author = 'Ienu'
 
 release = '0.1'
 version = '0.1.0'
