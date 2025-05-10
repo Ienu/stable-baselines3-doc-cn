@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Stable-Baselines3 中文文档（非官方）'
+project = 'Stable-Baselines3 文档（非官方）'
 copyright = '2025, Ienu'
 author = 'Ienu'
 
-release = '0.1'
-version = '0.1.0'
+release = '0.1.1'
+version = '0.1.1'
 
 # -- General configuration
 

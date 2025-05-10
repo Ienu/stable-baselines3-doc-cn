@@ -1,11 +1,11 @@
 .. _install:
 
 安装
-============
+====
 
 
 前置条件
--------------
+--------
 
 Stable-Baselines3 需要 python 3.9+ 和 PyTorch >= 2.3
 
@@ -22,7 +22,7 @@ Windows
 
 
 稳定版安装
-~~~~~~~~~~~~~~
+~~~~~~~~~~
 使用 pip 安装 Stable Baselines3：
 
 .. code-block:: bash
@@ -46,7 +46,7 @@ Windows
 
 
 最新版本安装
----------------------
+------------
 
 .. code-block:: bash
 
@@ -60,7 +60,7 @@ Windows
 
 
 开发版安装
--------------------
+----------
 
 如需参与 Stable-Baselines3 开发（支持运行测试和构建文档）：
 
@@ -71,7 +71,7 @@ Windows
 
 
 使用 Docker 镜像
--------------------
+----------------
 
 如需已预装 stable-baselines 的 Docker 镜像，
 推荐使用 `RL Baselines3 Zoo <https://github.com/DLR-RM/rl-baselines3-zoo>`_ 提供的镜像。
@@ -79,7 +79,7 @@ Windows
 以下镜像仅包含 stable-baselines3 的依赖项（不含本体），专为开发设计。
 
 使用预构建镜像
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 GPU 镜像 (需要 `nvidia-docker`_):
 
@@ -94,7 +94,7 @@ GPU 镜像 (需要 `nvidia-docker`_):
    docker pull stablebaselines/stable-baselines3-cpu
 
 构建 Docker 镜像
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 构建 GPU 镜像 (使用 nvidia-docker):
 
@@ -115,7 +115,7 @@ GPU 镜像 (需要 `nvidia-docker`_):
    --network=host --build-arg HTTP_PROXY=http://your.proxy.fr:8080/ --build-arg http_proxy=http://your.proxy.fr:8080/ --build-arg HTTPS_PROXY=https://your.proxy.fr:8080/ --build-arg https_proxy=https://your.proxy.fr:8080/
 
 运行镜像 (CPU/GPU)
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 运行 nvidia-docker GPU 镜像
 

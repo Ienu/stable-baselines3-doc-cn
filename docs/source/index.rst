@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Stable-Baselines3 文档 - 可靠的强化学习实现
-========================================================================
+=========================================
 
 `Stable Baselines3 (SB3) <https://github.com/DLR-RM/stable-baselines3>`_ 是一套基于 PyTorch 的强化学习算法可靠实现。
 它是 `Stable Baselines <https://github.com/hill-a/stable-baselines>`_ 的下一代主要版本。
@@ -24,7 +24,7 @@ SBX (SB3 + Jax): https://github.com/araffin/sbx
 
 
 主要特性
---------------
+--------
 
 - 所有算法采用统一架构
 - 符合 PEP8 规范（代码风格一致）
@@ -99,7 +99,8 @@ SBX (SB3 + Jax): https://github.com/araffin/sbx
 
 
 引用 Stable Baselines3
-------------------------
+----------------------
+
 如需在出版物中引用本项目:
 
 .. code-block:: bibtex
@@ -118,7 +119,7 @@ SBX (SB3 + Jax): https://github.com/araffin/sbx
 注：如需引用 SB3 的特定版本，可使用 `Zenodo DOI <https://doi.org/10.5281/zenodo.8123988>`_.
 
 参与贡献
-------------
+--------
 
 欢迎对改进强化学习基线感兴趣的开发者参与，目前仍有部分优化需求待完成。
 
@@ -127,7 +128,7 @@ SBX (SB3 + Jax): https://github.com/araffin/sbx
 贡献前请先阅读 `CONTRIBUTING.md <https://github.com/DLR-RM/stable-baselines3/blob/master/CONTRIBUTING.md>`_.
 
 索引与目录
--------------------
+----------
 
 * :ref:`genindex`
 * :ref:`search`
